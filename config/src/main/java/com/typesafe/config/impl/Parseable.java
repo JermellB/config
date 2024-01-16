@@ -578,11 +578,11 @@ public abstract class Parseable implements ConfigParseable {
         @Override
         ConfigSyntax contentType() {
             if (contentType != null) {
-                if (contentType.equals(jsonContentType))
+                if (jsonContentType.equals(contentType))
                     return ConfigSyntax.JSON;
-                else if (contentType.equals(propertiesContentType))
+                else if (propertiesContentType.equals(contentType))
                     return ConfigSyntax.PROPERTIES;
-                else if (contentType.equals(hoconContentType))
+                else if (hoconContentType.equals(contentType))
                     return ConfigSyntax.CONF;
                 else {
                     if (ConfigImpl.traceLoadsEnabled())
@@ -616,7 +616,7 @@ public abstract class Parseable implements ConfigParseable {
     public static Parseable newURL(URL input, ConfigParseOptions options) {
         // we want file: URLs and files to always behave the same, so switch
         // to a file if it's a file: URL
-        if (input.getProtocol().equals("file")) {
+        if ("file".equals(input.getProtocol())) {
             return newFile(ConfigImplUtil.urlToFile(input), options);
         } else {
             return new ParseableURL(input, options);

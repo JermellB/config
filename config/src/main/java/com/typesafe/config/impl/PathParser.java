@@ -181,7 +181,7 @@ final class PathParser {
 
     private static Collection<Token> splitTokenOnPeriod(Token t, ConfigSyntax flavor) {
         String tokenText = t.tokenText();
-        if (tokenText.equals(".")) {
+        if (".".equals(tokenText)) {
             return Collections.singletonList(t);
         }
         String[] splitToken = tokenText.split("\\.");

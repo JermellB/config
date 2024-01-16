@@ -36,14 +36,14 @@ final class DefaultTransformer {
                 }
                 break;
             case NULL:
-                if (s.equals("null"))
+                if ("null".equals(s))
                     return new ConfigNull(value.origin());
                 break;
             case BOOLEAN:
-                if (s.equals("true") || s.equals("yes") || s.equals("on")) {
+                if ("true".equals(s) || "yes".equals(s) || "on".equals(s)) {
                     return new ConfigBoolean(value.origin(), true);
-                } else if (s.equals("false") || s.equals("no")
-                        || s.equals("off")) {
+                } else if ("false".equals(s) || "no".equals(s)
+                        || "off".equals(s)) {
                     return new ConfigBoolean(value.origin(), false);
                 }
                 break;
