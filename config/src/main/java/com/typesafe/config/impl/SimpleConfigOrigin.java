@@ -182,7 +182,7 @@ final class SimpleConfigOrigin implements ConfigOrigin {
             } catch (MalformedURLException e) {
                 return null;
             }
-            if (url.getProtocol().equals("file")) {
+            if ("file".equals(url.getProtocol())) {
                 return url.getFile();
             } else {
                 return null;

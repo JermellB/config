@@ -327,13 +327,13 @@ final class Tokenizer {
                 // start of the unquoted token.
                 if (sb.length() == 4) {
                     String s = sb.toString();
-                    if (s.equals("true"))
+                    if ("true".equals(s))
                         return Tokens.newBoolean(origin, true);
-                    else if (s.equals("null"))
+                    else if ("null".equals(s))
                         return Tokens.newNull(origin);
                 } else if (sb.length() == 5) {
                     String s = sb.toString();
-                    if (s.equals("false"))
+                    if ("false".equals(s))
                         return Tokens.newBoolean(origin, false);
                 }
 

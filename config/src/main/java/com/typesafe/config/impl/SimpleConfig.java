@@ -638,16 +638,16 @@ final class SimpleConfig implements Config, MergeableValue, Serializable {
             unitString = unitString + "s";
 
         // note that this is deliberately case-sensitive
-        if (unitString.equals("") || unitString.equals("d") || unitString.equals("days")) {
+        if ("".equals(unitString) || "d".equals(unitString) || "days".equals(unitString)) {
             units = ChronoUnit.DAYS;
 
-        } else if (unitString.equals("w") || unitString.equals("weeks")) {
+        } else if ("w".equals(unitString) || "weeks".equals(unitString)) {
             units = ChronoUnit.WEEKS;
 
-        } else if (unitString.equals("m") || unitString.equals("mo") || unitString.equals("months")) {
+        } else if ("m".equals(unitString) || "mo".equals(unitString) || "months".equals(unitString)) {
             units = ChronoUnit.MONTHS;
 
-        } else if (unitString.equals("y") || unitString.equals("years")) {
+        } else if ("y".equals(unitString) || "years".equals(unitString)) {
             units = ChronoUnit.YEARS;
 
         } else {
@@ -722,20 +722,20 @@ final class SimpleConfig implements Config, MergeableValue, Serializable {
             unitString = unitString + "s";
 
         // note that this is deliberately case-sensitive
-        if (unitString.equals("") || unitString.equals("ms") || unitString.equals("millis")
-                || unitString.equals("milliseconds")) {
+        if ("".equals(unitString) || "ms".equals(unitString) || "millis".equals(unitString)
+                || "milliseconds".equals(unitString)) {
             units = TimeUnit.MILLISECONDS;
-        } else if (unitString.equals("us") || unitString.equals("micros") || unitString.equals("microseconds")) {
+        } else if ("us".equals(unitString) || "micros".equals(unitString) || "microseconds".equals(unitString)) {
             units = TimeUnit.MICROSECONDS;
-        } else if (unitString.equals("ns") || unitString.equals("nanos") || unitString.equals("nanoseconds")) {
+        } else if ("ns".equals(unitString) || "nanos".equals(unitString) || "nanoseconds".equals(unitString)) {
             units = TimeUnit.NANOSECONDS;
-        } else if (unitString.equals("d") || unitString.equals("days")) {
+        } else if ("d".equals(unitString) || "days".equals(unitString)) {
             units = TimeUnit.DAYS;
-        } else if (unitString.equals("h") || unitString.equals("hours")) {
+        } else if ("h".equals(unitString) || "hours".equals(unitString)) {
             units = TimeUnit.HOURS;
-        } else if (unitString.equals("s") || unitString.equals("seconds")) {
+        } else if ("s".equals(unitString) || "seconds".equals(unitString)) {
             units = TimeUnit.SECONDS;
-        } else if (unitString.equals("m") || unitString.equals("minutes")) {
+        } else if ("m".equals(unitString) || "minutes".equals(unitString)) {
             units = TimeUnit.MINUTES;
         } else {
             throw new ConfigException.BadValue(originForException,

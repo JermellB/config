@@ -30,7 +30,7 @@ final class ConfigNodePath extends AbstractConfigNode {
         ArrayList<Token> tokensCopy = new ArrayList<Token>(tokens);
         for (int i = 0; i < tokensCopy.size(); i++) {
             if (Tokens.isUnquotedText(tokensCopy.get(i)) &&
-                    tokensCopy.get(i).tokenText().equals("."))
+                    ".".equals(tokensCopy.get(i).tokenText()))
                 periodCount++;
 
             if (periodCount == toRemove) {
@@ -44,7 +44,7 @@ final class ConfigNodePath extends AbstractConfigNode {
         ArrayList<Token> tokensCopy = new ArrayList<Token>(tokens);
         for (int i = 0; i < tokensCopy.size(); i++) {
             if (Tokens.isUnquotedText(tokensCopy.get(i)) &&
-                    tokensCopy.get(i).tokenText().equals("."))
+                    ".".equals(tokensCopy.get(i).tokenText()))
                 return new ConfigNodePath(path.subPath(0, 1), tokensCopy.subList(0, i));
         }
         return this;

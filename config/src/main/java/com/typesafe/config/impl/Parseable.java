@@ -616,7 +616,7 @@ public abstract class Parseable implements ConfigParseable {
     public static Parseable newURL(URL input, ConfigParseOptions options) {
         // we want file: URLs and files to always behave the same, so switch
         // to a file if it's a file: URL
-        if (input.getProtocol().equals("file")) {
+        if ("file".equals(input.getProtocol())) {
             return newFile(ConfigImplUtil.urlToFile(input), options);
         } else {
             return new ParseableURL(input, options);

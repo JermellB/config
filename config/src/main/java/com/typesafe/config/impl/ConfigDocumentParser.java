@@ -285,7 +285,7 @@ final class ConfigDocumentParser {
 
         private static boolean isIncludeKeyword(Token t) {
             return Tokens.isUnquotedText(t)
-                    && Tokens.getUnquotedText(t).equals("include");
+                    && "include".equals(Tokens.getUnquotedText(t));
         }
 
         private static boolean isUnquotedWhitespace(Token t) {
@@ -333,7 +333,7 @@ final class ConfigDocumentParser {
 
                     t = nextTokenCollectingWhitespace(children);
 
-                    if (Tokens.isUnquotedText(t) && Tokens.getUnquotedText(t).equals(")")) {
+                    if (Tokens.isUnquotedText(t) && ")".equals(Tokens.getUnquotedText(t))) {
                         // OK, close paren
                     } else {
                         throw parseError(ExpectingClosingParenthesisError + t);
