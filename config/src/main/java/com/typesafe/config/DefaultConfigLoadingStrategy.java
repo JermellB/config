@@ -1,5 +1,7 @@
 package com.typesafe.config;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -51,7 +53,7 @@ public class DefaultConfigLoadingStrategy implements ConfigLoadingStrategy {
                 return ConfigFactory.parseFile(new File(file), overrideOptions);
             } else {
                 try {
-                    return ConfigFactory.parseURL(new URL(url), overrideOptions);
+                    return ConfigFactory.parseURL(Urls.create(url, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS), overrideOptions);
                 } catch (MalformedURLException e) {
                     throw new ConfigException.Generic("Bad URL in config.url system property: '"
                                                               + url + "': " + e.getMessage(), e);
