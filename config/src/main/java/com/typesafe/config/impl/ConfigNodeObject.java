@@ -230,7 +230,9 @@ final class ConfigNodeObject extends ConfigNodeComplexValue {
                     if (i+1 >= childrenCopy.size() ||
                             !(childrenCopy.get(i+1) instanceof ConfigNodeSingleToken
                                     && ((ConfigNodeSingleToken) childrenCopy.get(i+1)).token() == Tokens.COMMA))
-                    childrenCopy.add(i+1, new ConfigNodeSingleToken(Tokens.COMMA));
+                    {
+                        childrenCopy.add(i+1, new ConfigNodeSingleToken(Tokens.COMMA));
+                    }
                     break;
                 }
 
