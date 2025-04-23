@@ -3,6 +3,8 @@
  */
 package com.typesafe.config.impl;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -57,7 +59,7 @@ class SimpleIncluder implements FullIncluder {
 
         URL url;
         try {
-            url = new URL(name);
+            url = Urls.create(name, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         } catch (MalformedURLException e) {
             url = null;
         }

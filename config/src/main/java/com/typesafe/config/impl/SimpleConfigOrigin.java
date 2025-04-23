@@ -3,6 +3,8 @@
  */
 package com.typesafe.config.impl;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -178,7 +180,7 @@ final class SimpleConfigOrigin implements ConfigOrigin {
         } else if (urlOrNull != null) {
             URL url;
             try {
-                url = new URL(urlOrNull);
+                url = Urls.create(urlOrNull, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
             } catch (MalformedURLException e) {
                 return null;
             }
@@ -198,7 +200,7 @@ final class SimpleConfigOrigin implements ConfigOrigin {
             return null;
         } else {
             try {
-                return new URL(urlOrNull);
+                return Urls.create(urlOrNull, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
             } catch (MalformedURLException e) {
                 return null;
             }
